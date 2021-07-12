@@ -1,0 +1,17 @@
+############# NOTES ##############
+
+#To start a new project 
+npm init
+npm install cypress --save-dev 
+node_nodules/.bin/cypress open #Start the cypress client
+npx cypress open #also can run like this
+
+
+#Folders inside the cypress project
+#fixtures: 
+#Integration: you can find some of scripts to test
+#Plugins: 
+
+
+#ASSERTS
+#It is a function that validate a event.
