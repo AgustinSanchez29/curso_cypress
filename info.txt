@@ -3,8 +3,8 @@
 #To start a new project 
 npm init
 npm install cypress --save-dev 
-node_nodules/.bin/cypress open #Start the cypress client
-npx cypress open #also can run like this
+#Start the cypress client: node_nodules/.bin/cypress open 
+#also can run like this: npx cypress open 
 
 
 #Folders inside the cypress project
@@ -13,10 +13,31 @@ npx cypress open #also can run like this
 #Plugins: 
 
 
-#ASSERTS
+#ASSERTS aim
 #It is a function that validate a event.
 
-#SELECTORES
+#FUNCTIONS
+#.type('{enter}') it's used to simulate an action tapping the enter button
+
+#SELECTORS
+#Attributes cy.get["type='checkbox'"]
 #Some tools to get the element via xpath
 #Toolspath #relativePath #Chropath
-#Use copy selector to obtain the element
+#Use copy-selector to obtain the element
+
+#CHECKBBOX
+#to check could use check() function
+#to uncheck could use uncheck() function
+#to assert a checkbox could use should('be.checked')
+#to assert a checkbox being unchecked could use should('not.be.checked')
+#we could use click() function, but the should() function will be unavailable
+
+#SELECTS
+#to get more than one element on multiselect box, could do this .select(['California','New York','Pennsylvania'])
+
+#ASSERTS
+#contains() function,the element must be found within its father
+#find() function, it looking for a element, could uses class, id, xpath, anything.
+#eq() function, looking for a element, could use as a array, check the Asserts.js file 
+#should('have.value', 'value') the diference between have.text and contain.text is that contain function can
+find a extract of a string 

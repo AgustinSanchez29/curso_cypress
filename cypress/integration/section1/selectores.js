@@ -1,5 +1,7 @@
 ///<reference types="Cypress"/>
 require('cypress-xpath')
+require('cypress-plugin-tab')
+
 
 describe('Tipos de selectores', () => {
     it('selector por id', () => {
@@ -50,7 +52,8 @@ describe('Tipos de selectores', () => {
         cy.title().should('eq', 'ToolsQA')
         cy.wait(1000)
 
-        cy.get('#firstName').should('be.visible').type('copy selector')
+        cy.get('#firstName').should('be.visible').type('copy selector').tab().
+        type('2023-06-01')
 
     });   
 });
