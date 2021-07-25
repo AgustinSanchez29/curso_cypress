@@ -4,7 +4,7 @@
 npm init
 npm install cypress --save-dev 
 #Start the cypress client: node_nodules/.bin/cypress open 
-#also can run like this: npx cypress open 
+#easy way to doing: npx cypress open 
 
 
 #Folders inside the cypress project
@@ -13,8 +13,8 @@ npm install cypress --save-dev
 #Plugins: 
 
 
-#ASSERTS aim
-#It is a function that validate a event.
+#ASSERTS
+#It is a function that validate an event.
 
 #FUNCTIONS
 #.type('{enter}') it's used to simulate an action tapping the enter button
@@ -36,8 +36,36 @@ npm install cypress --save-dev
 #to get more than one element on multiselect box, could do this .select(['California','New York','Pennsylvania'])
 
 #ASSERTS
-#contains() function,the element must be found within its father
+#contains() function, the element must be found within its father
 #find() function, it looking for a element, could uses class, id, xpath, anything.
 #eq() function, looking for a element, could use as a array, check the Asserts.js file 
 #should('have.value', 'value') the diference between have.text and contain.text is that contain function can
 find a extract of a string 
+#should('contain.value','txt'), can use to assert some text on a field
+#Should('have.class','sample-class') to validate if a element contains some class
+#use('have.class','sample'), and operator
+#not operator for a negative cases, for example: should('not.have.class','sample')
+#(have.css)
+#invoke() function, can use to call some element or could add some attributes for example: invoke('attr', 'style', 'color:red')
+
+
+#Windows reference
+#cy.document() obtain the document or page to evaluate something, check it on the .js file about this
+
+#cypres.json file, it's a configuration file
+{
+        "viewportWidth": 1500,
+        "viewportHeight": 900,
+        "chromeWebSecurity": false
+}
+
+#using cypress by console, could use it with jenkins
+# node_nodules\.bin\cypress run, this command run all tests
+# npx cypress run
+# npx cypress run --headed, to run through the browser
+# npx cypress --browser chrome, to run on specific browser
+# npx cypress run --spec cypress\integration\section_2\windows_reference.js // for a specific file
+# npx cypress run --spec cypress\integration\section2\* //to run a specific section
+
+#Uploading files
+#Must to install an import the cypress file upload Plugin
