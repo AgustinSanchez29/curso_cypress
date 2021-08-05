@@ -1,5 +1,18 @@
 ############# NOTES ##############
 
+--------------------------------
+
+///<reference types="Cypress"/>
+
+describe('', () => {
+    it('', () => {
+       
+    });
+});
+
+
+---------------------------------
+
 #To start a new project 
 npm init
 npm install cypress --save-dev 
