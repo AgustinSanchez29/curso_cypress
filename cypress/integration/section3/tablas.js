@@ -104,7 +104,7 @@ describe('Table', () => {
 
 
     //Challenge, find the checkboxes and select all, **updated**
-    it.only('challenge', () => {
+    it('challenge', () => {
         cy.visit('https://www.seleniumeasy.com/test/table-records-filter-demo.html')
         cy.title().should('eq', 'Selenium Easy - Table Data Filter Demo')
         cy.wait(2000)
@@ -120,6 +120,67 @@ describe('Table', () => {
             cy.wait(2000)
             cy.get('[type="checkbox"]').check({force:true})
         }
+    });
+
+    it('Obtaining the table values', () => {
+        cy.visit('https://www.seleniumeasy.com/test/table-sort-search-demo.html')
+        cy.title().should('eq', 'Selenium Easy - Tabel Sort and Search Demo')
+        cy.wait(2000)
+        
+        const datos =[]
+        cy.get('.odd td, .even td').each(($el, index, $list)=>{
+            datos[index]= $el.text()
+        }).then(()=>{
+            for(let i=0; i<=datos.length; i++){
+                cy.log(datos[i])
+            }
+        })
+
+        
+    });
+
+
+    it('obtaining the odd class values numbers', () => {
+        cy.visit('https://www.seleniumeasy.com/test/table-sort-search-demo.html')
+        cy.title().should('eq', 'Selenium Easy - Tabel Sort and Search Demo')
+        cy.wait(2000)
+        
+        const datos =[]
+        let cantidadOdd= 0
+
+        cy.get('[role="row"] td').each(($el, index, $list)=>{
+            datos[index]= $el.text()
+        }).then(()=>{
+            for(let i=0; i<=datos.length; i++){
+                cy.log(datos[i])
+                if(Number(datos[i])){
+                    cantidadOdd+=Number(datos[i])
+                }
+            }
+            cy.log(`La cantidad total es: ${cantidadOdd}`)
+            expect(cantidadOdd).eq(394)
+        })
+        
+    });
+
+
+    it.only('obtaining the specific value', () => {
+        cy.visit('https://www.seleniumeasy.com/test/table-sort-search-demo.html')
+        cy.title().should('eq', 'Selenium Easy - Tabel Sort and Search Demo')
+        cy.wait(2000)
+        
+        const campo = cy.get('tbody > :nth-child(7) > :nth-child(2)')        
+        campo.each(($el, index, $item)=>{
+            const dato= $el.text()
+            cy.log(dato)
+            if(dato.includes('Javascript Developer')){
+                campo.eq(index).next().next().then((age)=>{
+                    const edad= age.text()
+                    cy.log(`La edad es: ${edad}`)
+                    expect(edad).to.equal('39')
+                })
+            }
+        })
     });
 
 });
