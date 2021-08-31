@@ -82,3 +82,8 @@ find a extract of a string
 
 #Uploading files
 #Must to install an import the cypress file upload Plugin
+
+#Validating a expected result
+#expect(cantidadOdd).eq(202)
+
+#next() to jump to the next value obtained
