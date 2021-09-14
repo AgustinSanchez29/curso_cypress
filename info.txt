@@ -87,3 +87,7 @@ find a extract of a string
 #expect(cantidadOdd).eq(202)
 
 #next() to jump to the next value obtained
+
+
+#Alias
+#It's used to assign a alias to a functions or some procedures
