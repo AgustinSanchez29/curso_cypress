@@ -91,3 +91,7 @@ find a extract of a string
 
 #Alias
 #It's used to assign a alias to a functions or some procedures
+
+#Invoke
+#Invoke a function on the previously yielded subject.
+
