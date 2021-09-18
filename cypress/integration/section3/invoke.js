@@ -22,7 +22,7 @@ describe('Invoke', () => {
         cy.get('[for="firstname"]').invoke('attr','style','color:blue; font-size: 80px')   
     });
 
-    it.only('invoke hide/show', () => {
+    it('invoke hide/show', () => {
         cy.visit('https://testpages.herokuapp.com/styled/validation/input-validation.html')
         cy.title().should('eq', 'Input Validation')
         cy.wait(1000)
@@ -33,6 +33,37 @@ describe('Invoke', () => {
         cy.get('#firstname').invoke('show','4s')   
 
     });
+
+    it('challenge 1, hide and show lastname label', () => {
+        cy.visit('https://testpages.herokuapp.com/styled/validation/input-validation.html')
+        cy.title().should('eq', 'Input Validation')
+        cy.get('[for="surname"]').invoke('hide')
+        cy.wait(1000)
+        cy.get('#surname').should('be.visible').type('tst').then(()=>{
+            cy.wait(2000)
+            cy.get('[for="surname"]').invoke('show')
+        })  
+
+    });
+
+
+    it('obteniendo elemento y comparando atributo', () => {
+        cy.visit('https://www.seleniumeasy.com/test/bootstrap-modal-demo.html')
+        cy.title().should('eq', 'Selenium Easy Demo - Bootstrap Modal Demo to Automate')
+        cy.wait(1000)
+       
+        cy.xpath('//body/div[1]/div[1]/div[2]/a[1]/img[1]').invoke('attr','src').should('include','sponsored-by-CBT.png')
+
+    });
+
+    it.only('target_blank', () => {
+        cy.visit('https://dvwa.co.uk/')
+        cy.title().should('eq', 'DVWA - Damn Vulnerable Web Application')
+        cy.wait(1000)
+       
+        cy.xpath('//*[@id="pagewidth"]/div/div[5]/a[2]').invoke('removeAttr', 'target').click({force:true})
+    });
+
 
     
 });
