@@ -23,6 +23,6 @@ describe('learning about checkboxes', () => {
         cy.get(".panel-body > :nth-child(2) > input").check().should('be.checked').wait(1500)
         cy.get(".panel-body > :nth-child(2) > :nth-child(2) > input").check().should('be.checked').wait(1500)
         cy.get(":nth-child(3) > :nth-child(3) > input").check().should('be.checked').wait(1500)
-        cy.get('.panel-body > .btn').click()
+        cy.get('#genterWrapper > .col-md-9 > :nth-child(1)').click()
     });
 });

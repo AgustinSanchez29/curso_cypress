@@ -100,13 +100,38 @@ find a extract of a string
 #use ctrl + p, >snippets to open the menu and next select the programming language(javascript)
 #Template
 "texto_argumentos": {
-			"prefix": "c_argumentos",`
+			"prefix": "c_argumentos",
 		 	"body": [
 		 		"cy.get('[${1:argumento}]').should('be.visible').type('${2:texto}')",
 				"cy.wait(tiempo)",
 		 	],
 		 	"description": "Texto por argumentos"
 		 }
+------------------------------------------------------------
+add this to snippets file:		 
+ "template": {
+		"prefix": "c_template",
+		"body":[
+	 	"///<reference types='Cypress'/>"
+"require('cypress-xpath')"
+"describe('${1:argumento}', () => {"
+    " \tbefore(()=>{"
+        "\t\tcy.visit('${1:argumento}')"
+        "\t\tcy.title('${1:argumento}')"
+        "\t\tcy.wait(2000)"
+    "\t})"
+    "\tit('test1', () => {"
+        "\t\tcy.get('${1:argumento}').should('be.visible').click()"
+        "\t\tcy.wait(2000)"
+    "\t});"
+
+   
+	"});"
+		]
+		"description": "Texto por argumentos"
+	 },
+
+----------------------------------------------------------------------
 
 #Browsing
 #cy.go('back')
