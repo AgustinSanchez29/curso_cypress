@@ -23,3 +23,31 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+
+Cypress.Commands.add('f_type', (a, b,t) => {
+    cy.get(a).should('be.visible').type(b)
+    cy.wait(t)
+}),
+
+Cypress.Commands.add('f_click', (a,t) => {
+    cy.get(a).should('be.visible').click()
+    cy.wait(t)
+}),
+
+
+Cypress.Commands.add('force_click', (a,t) => {
+    cy.get(a).should('be.visible').click({force:true})
+    cy.wait(t)
+}),
+
+
+Cypress.Commands.add('f_type_xpath', (a, b,t) => {
+    cy.xpath(a).should('be.visible').type(b)
+    cy.wait(t)
+}),
+
+Cypress.Commands.add('f_click_xpath', (a,t) => {
+    cy.xpath(a).should('be.visible').click()
+    cy.wait(t)
+})

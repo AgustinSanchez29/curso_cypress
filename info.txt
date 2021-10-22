@@ -151,3 +151,8 @@ add this to snippets file:
 #after(()=>{
 	cy.log('kick off after the functions')
 })
+
+
+#Custom command
+# It allows create a function that receive arguments that be replaced. Its almost like snippets but as a function
+#/support/commands.js
