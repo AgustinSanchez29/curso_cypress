@@ -24,6 +24,8 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+const cypress = require("cypress")
+
 
 Cypress.Commands.add('f_type', (a, b,t) => {
     cy.get(a).should('be.visible').type(b)
@@ -50,4 +52,10 @@ Cypress.Commands.add('f_type_xpath', (a, b,t) => {
 Cypress.Commands.add('f_click_xpath', (a,t) => {
     cy.xpath(a).should('be.visible').click()
     cy.wait(t)
+}),
+
+Cypress.Commands.add('f_toolsqa', (name,lastname, email)=>{
+    cy.get('#firstName').should('be.visible').type(name)
+    cy.get('#lastName').should('be.visible').type(lastname)
+    cy.get('#userEmail').should('be.visible').type(email)
 })
